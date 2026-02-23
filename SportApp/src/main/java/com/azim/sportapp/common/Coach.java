@@ -1,4 +1,4 @@
-package com.azim.sportapp;
+package com.azim.sportapp.common;
 
 public interface Coach {
 
