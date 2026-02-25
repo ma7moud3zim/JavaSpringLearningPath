@@ -1,17 +1,15 @@
 package com.azim.sportapp.common;
 
-import org.springframework.stereotype.Component;
 
-@Component
-public class TrackCoach implements Coach {
+public class SwimCoach implements Coach {
 
-	public TrackCoach() {
+	public SwimCoach() {
 		System.out.println("In constructor: " + getClass().getSimpleName());
 	}
 	
 	@Override
 	public String getDailyWorkout() {
-		return "Run A hard 5k!";
+		return "Swim 100 m as a warmup";
 	}
 
 }
