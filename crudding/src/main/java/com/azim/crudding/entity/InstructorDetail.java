@@ -1,16 +1,19 @@
 package com.azim.crudding.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Instructor_detail")
 
 public class InstructorDetail {
+
 	// annotate the class as an entity and map to db table
 	
 	// define the fields
@@ -34,6 +37,12 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 	
+	
+	
+	@OneToOne(mappedBy = "instructorDetail" , cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	private Instructor instructor;
+	
+
 	public InstructorDetail() {
 		
 	}
@@ -73,10 +82,20 @@ public class InstructorDetail {
 		this.hobby = hobby;
 	}
 
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "InstructorDetail [id=" + id + ", ytChannel=" + ytChannel + ", hobby=" + hobby + "]";
 	}
+	
 	
 	
 

@@ -20,11 +20,31 @@ public class CruddingApplication {
 	public CommandLineRunner commanLinerunner(AppDAO appDAO){
 		
 		return runner->{
-			// createInstructor(appDAO);
-			// findInsrtuctor(appDAO);
-			deleteInstructor(appDAO);
+//			createInstructor(appDAO);
+//			findInsrtuctor(appDAO);
+//			deleteInstructor(appDAO);
+//			findInstructorDetail(appDAO);
+			deleteInstructorDetail(appDAO);
 		};
 		
+	}
+
+	private void deleteInstructorDetail(AppDAO appDAO) {
+		int id = 1;
+		System.out.println("Deleting instructions with id: "+ id);
+		
+		appDAO.deleteInstructorDetailById(id);
+		System.out.println("done!");
+	}
+
+	private void findInstructorDetail(AppDAO appDAO) {
+		// get instructor detail object
+		int id = 1;
+		InstructorDetail tmpInstDetail = appDAO.findInstructorDetailById(id);
+		System.out.println("tempInstructorDetail: " + tmpInstDetail);
+		System.out.println("the accociated Instructor: " + tmpInstDetail.getInstructor());
+		System.out.println("Done!");
+
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
